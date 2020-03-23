@@ -1,3 +1,4 @@
-OpenBlender
+pandas
+scipy
 matplotlib
-wordcloud
+numpy
