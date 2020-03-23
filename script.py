@@ -2,12 +2,16 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 import numpy as np
-
+from urllib.request import urlopen
+url = 'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_19-covid-Confirmed.csv&filename=time_series_2019-ncov-Confirmed.csv'
 
 def func(x, a, b, c):
     return a * b**x + c
 
-df = pd.read_csv('./time_series_2019-ncov-Confirmed.csv')
+
+response = urlopen(url)
+
+df = pd.read_csv(response)
 italian_data = df[df['Country/Region'] == 'Italy']
 us_data = df[df['Country/Region'] == 'US']
 nj_data = us_data[us_data['Province/State'] == 'New Jersey']
