@@ -7,7 +7,7 @@ import numpy as np
 def func(x, a, b, c):
     return a * b**x + c
 
-df = pd.read_csv('/home/daniel/PycharmProjects/CoronavirusAnalysis/time_series_2019-ncov-Confirmed.csv')
+df = pd.read_csv('./time_series_2019-ncov-Confirmed.csv')
 italian_data = df[df['Country/Region'] == 'Italy']
 us_data = df[df['Country/Region'] == 'US']
 nj_data = us_data[us_data['Province/State'] == 'New Jersey']
